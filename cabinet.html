@@ -1,0 +1,50 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Личный кабинет — Откуси Бабла</title><link rel="stylesheet" href="assets/styles.css"></head><body>
+
+<header><div class="wrap nav"><a class="brand" href="index.html"><img src="https://cnizroman.github.io/otkusi.babla/137498702_1094725030976965_5901316285696199741_n.jpeg" alt=""><span><strong>Откуси Бабла</strong><small>коммерческий банк</small></span></a><button class="menu">☰</button><nav class="links"><a href="index.html">Главная</a><a href="products.html">Продукты</a><a href="credit-cards.html">Карты</a><a href="loans.html">Кредиты</a><a href="deposits.html">Вклады</a><a href="investment.html">Инвестиции</a><a href="branches.html">Отделения</a><a href="faq.html">Помощь</a><a class="active" href="cabinet.html">Кабинет</a><button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему">☾</button></nav><a class="navbtn" href="application.html">Стать клиентом</a></div></header>
+
+<main class="auth-page">
+<section class="auth-shell" id="authShell">
+<div class="auth-intro"><img class="auth-logo" src="https://cnizroman.github.io/otkusi.babla/137498702_1094725030976965_5901316285696199741_n.jpeg" alt=""><div class="eyebrow" style="color:#8bd6ff;margin-top:35px">Личный кабинет</div><h1>Ваш банк<br>в одном месте.</h1><p>Управляйте продуктами, смотрите операции и следите за состоянием счетов.</p></div>
+<div class="auth-form">
+<h2>Личный кабинет</h2><p>Войдите или создайте аккаунт клиента.</p>
+<div class="auth-tabs"><button class="active" data-auth-tab="login">Войти</button><button data-auth-tab="register">Регистрация</button></div>
+
+<form id="loginForm" autocomplete="on">
+<div class="field"><label>Email или телефон<input id="loginContact" required autocomplete="username" placeholder="name@example.com"></label></div>
+<div class="field"><label>Пароль<div class="pass-wrap"><input id="loginPassword" type="password" required autocomplete="current-password" placeholder="Ваш пароль"><button type="button" data-toggle="loginPassword">◉</button></div></label></div>
+<div class="consent"><label><input type="checkbox" style="width:auto;margin-right:6px"> Запомнить меня</label></div>
+<button class="btn auth-submit" type="submit">Войти →</button>
+</form>
+
+<form id="registerForm" style="display:none" autocomplete="on">
+<div class="field"><label>Имя<input id="regName" autocomplete="name" required autocomplete="name" placeholder="Ваше имя"></label></div>
+<div class="field"><label>Email
+<input id="regEmail" autocomplete="email" inputmode="email" type="email" required autocomplete="email" placeholder="name@example.com" inputmode="email"></label></div>
+<div class="field"><label>Телефон
+<input id="regPhone" autocomplete="tel" inputmode="tel" required autocomplete="tel" placeholder="+7 (___) ___-__-__" inputmode="tel" maxlength="18">
+<span class="field-hint">Формат: +7 (999) 123-45-67</span></label></div>
+<div class="field"><label>Пароль<div class="pass-wrap"><input id="regPassword" type="password" required minlength="8" autocomplete="new-password" placeholder="Не менее 8 символов"><button type="button" data-toggle="regPassword">◉</button></div></label></div>
+<div class="field"><label>Повторите пароль<input id="regPassword2" type="password" required minlength="8" autocomplete="new-password" placeholder="Повторите пароль"></label></div>
+<div class="consent"><label><input id="regConsent" type="checkbox" required style="width:auto;margin-right:6px"> Я согласен на обработку данных, необходимых для регистрации и связи по аккаунту.</label></div>
+<button class="btn auth-submit" type="submit">Создать аккаунт →</button>
+</form>
+<div id="authMessage" class="auth-message"></div>
+</div></section>
+
+<section id="cabinetContent" class="dashboard" style="display:none;width:min(980px,calc(100% - 24px));margin:20px auto 0">
+<div class="dash-top"><div><div class="eyebrow">Личный кабинет</div><h2 id="welcomeName" style="margin:4px 0">Добро пожаловать</h2></div><button id="logoutBtn" class="btn" style="background:#eef5f9;color:#1769aa">Выйти</button></div>
+<div class="balance">184 520 ₽</div><div class="dash-grid"><div class="panel"><h4>Мои продукты</h4><div class="operation"><span class="opico">▣</span><div><b>Shark Card</b><small>•••• 4821</small></div><strong>184 520 ₽</strong></div><div class="operation"><span class="opico">▤</span><div><b>Накопления</b><small>Вклад</small></div><strong>100 000 ₽</strong></div></div><div class="panel"><h4>Быстрые действия</h4><div class="actions"><a class="btn" style="background:#1769aa;color:#fff" href="application.html">Перевести</a><a class="btn" style="background:#eaf5fc;color:#1769aa" href="application.html">Пополнить</a><a class="btn" style="background:#eaf5fc;color:#1769aa" href="application.html">Оплатить</a></div></div></div></section>
+</main>
+<footer class="footer34"><div class="wrap footer-top"><div class="footer-brand"><a class="brand" href="index.html"><img src="https://cnizroman.github.io/otkusi.babla/137498702_1094725030976965_5901316285696199741_n.jpeg" alt=""><span><strong>Откуси Бабла</strong><small>коммерческий банк</small></span></a><p>Современный банковский сервис, понятные продукты и человеческая поддержка.</p><a class="tg-link" href="https://t.me/Otkusi_Babla">✈ Telegram банка</a></div><div class="footer-col"><b>Продукты</b><a href="credit-cards.html">Карты</a><a href="loans.html">Кредиты</a><a href="mortgage.html">Ипотека</a><a href="deposits.html">Вклады</a><a href="investment.html">Инвестиции</a></div><div class="footer-col"><b>Сервис</b><a href="cabinet.html">Личный кабинет</a><a href="application.html">Заявка</a><a href="branches.html">Отделения</a><a href="consultant.html">Онлайн-консультант</a></div><div class="footer-col"><b>Помощь</b><a href="faq.html">FAQ</a><a href="contact.html">Контакты</a><a href="feedback.html">Отзывы</a><a href="https://t.me/Otkusi_Babla">Telegram</a></div></div><div class="wrap footer-bottom"><span>© 2026 Коммерческий Банк «Откуси Бабла»</span><span>Информация на сайте предназначена для проекта.</span></div></footer>
+<script src="assets/app.js"></script><script src="assets/config.js"></script><script src="assets/auth.js"></script><script>
+(function(){
+ const root=document.documentElement, key="otkusi-theme";
+ const saved=localStorage.getItem(key);
+ if(saved==="dark") root.setAttribute("data-theme","dark");
+ const b=document.getElementById("themeToggle");
+ if(!b)return;
+ const sync=()=>{const dark=root.getAttribute("data-theme")==="dark";b.textContent=dark?"☀":"☾";b.title=dark?"Светлая тема":"Тёмная тема";};
+ sync();
+ b.addEventListener("click",()=>{const dark=root.getAttribute("data-theme")==="dark";root.setAttribute("data-theme",dark?"light":"dark");localStorage.setItem(key,dark?"light":"dark");sync();});
+})();
+</script></body></html>
