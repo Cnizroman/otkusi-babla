@@ -1,6 +1,52 @@
+const menu = document.querySelector('.menu');
+const links = document.querySelector('.links');
 
-const menu=document.querySelector('.menu'),links=document.querySelector('.links');
-if(menu&&links)menu.addEventListener('click',()=>{links.classList.toggle('open');if(links.classList.contains('open')){links.style.display='flex';links.style.position='absolute';links.style.top='66px';links.style.left='12px';links.style.right='12px';links.style.padding='18px';links.style.background='#fff';links.style.border='1px solid #dbe7f0';links.style.borderRadius='16px';links.style.flexDirection='column';links.style.boxShadow='0 20px 50px rgba(10,50,80,.15)'}else links.removeAttribute('style')});
-document.querySelectorAll('[data-submit]').forEach(b=>b.addEventListener('click',()=>{const t=document.createElement('div');t.textContent=b.dataset.submit;t.style.cssText='position:fixed;right:18px;bottom:18px;background:#0b2d4a;color:#fff;padding:14px 18px;border-radius:13px;z-index:99;font-weight:800;box-shadow:0 12px 35px rgba(0,0,0,.2)';document.body.append(t);setTimeout(()=>t.remove(),2200)}));
+if (menu && links) {
+  links.id = links.id || 'main-navigation';
+  menu.setAttribute('type', 'button');
+  menu.setAttribute('aria-controls', links.id);
+  menu.setAttribute('aria-expanded', 'false');
+  menu.setAttribute('aria-label', 'Открыть меню');
 
-document.querySelectorAll("[data-range]").forEach(r=>{const o=document.querySelector(r.dataset.range);const u=()=>o&&(o.textContent=Number(r.value).toLocaleString("ru-RU")+" ₽");r.addEventListener("input",u);u()});
+  const setMenu = open => {
+    links.classList.toggle('open', open);
+    menu.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+  };
+  menu.addEventListener('click', () => setMenu(!links.classList.contains('open')));
+  links.addEventListener('click', event => {
+    if (event.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && links.classList.contains('open')) {
+      setMenu(false);
+      menu.focus();
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 980) setMenu(false);
+  });
+}
+
+// These forms do not have a submission endpoint; never report a false success.
+document.querySelectorAll('[data-submit]').forEach(button => {
+  button.addEventListener('click', () => {
+    let notice = button.parentElement.querySelector('.submit-notice');
+    if (!notice) {
+      notice = document.createElement('p');
+      notice.className = 'submit-notice';
+      notice.setAttribute('role', 'status');
+      button.insertAdjacentElement('afterend', notice);
+    }
+    notice.textContent = 'Отправка формы пока не подключена. Свяжитесь с нами через Telegram.';
+  });
+});
+
+document.querySelectorAll('[data-range]').forEach(range => {
+  const output = document.querySelector(range.dataset.range);
+  const update = () => {
+    if (output) output.textContent = Number(range.value).toLocaleString('ru-RU') + ' ₽';
+  };
+  range.addEventListener('input', update);
+  update();
+});

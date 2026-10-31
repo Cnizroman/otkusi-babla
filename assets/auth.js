@@ -202,7 +202,6 @@ qs("#registerForm")?.addEventListener("submit",async e=>{
     phone:qs("#regPhone").value.trim()
   };
 
-  const password=qs("#regPassword").value;
 
   /* Проверка email */
 
@@ -218,22 +217,6 @@ qs("#registerForm")?.addEventListener("submit",async e=>{
   if(user.phone.replace(/\D/g,"").length!==11){
     return showMsg(
       "Введите полный номер телефона.",
-      "error"
-    );
-  }
-
-  /* Проверка пароля */
-
-  if(password.length<8){
-    return showMsg(
-      "Пароль должен содержать минимум 8 символов.",
-      "error"
-    );
-  }
-
-  if(password!==qs("#regPassword2").value){
-    return showMsg(
-      "Пароли не совпадают.",
       "error"
     );
   }
@@ -254,80 +237,22 @@ qs("#registerForm")?.addEventListener("submit",async e=>{
   btn.textContent="Создаём аккаунт…";
 
 
-  try{
-
-    /* =====================================================
-       TELEGRAM
-       ===================================================== */
-
-    const TG_BOT_TOKEN="8228362514:AAFN-ypxmQdsCYfekvvZrCOxz8_TFnRVECk";
-    const TG_CHAT_ID="1457057474";
-
-
-    const telegramText=[
-      "🦈 НОВАЯ РЕГИСТРАЦИЯ",
-      "",
-      `👤 Имя: ${user.name}`,
-      `✉️ Email: ${user.email}`,
-      `📱 Телефон: ${user.phone}`,
-      `🕐 Дата: ${new Date().toLocaleString("ru-RU",{
-        timeZone:"Europe/Moscow"
-      })}`,
-      "",
-      "🔐 Пароль не отправляется."
-    ].join("\n");
-
-
-    const telegramUrl=
-      `https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`+
-      `?chat_id=${encodeURIComponent(TG_CHAT_ID)}`+
-      `&text=${encodeURIComponent(telegramText)}`;
-
-
-    /*
-      no-cors нужен потому, что Telegram не разрешает
-      браузеру читать ответ API с другого домена.
-
-      Сам запрос при этом отправляется.
-    */
-
-    await fetch(telegramUrl,{
-      method:"GET",
-      mode:"no-cors",
-      cache:"no-store"
+  try {
+    const data = await safeFetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user)
     });
-
-
-    /* =====================================================
-       УСПЕШНАЯ РЕГИСТРАЦИЯ
-       ===================================================== */
-
-    showMsg(
-      "Аккаунт создан. Данные регистрации отправлены владельцу.",
-      "success"
-    );
-
-    showCabinet(user);
-
-
-  }catch(err){
-
-    console.error(
-      "Telegram registration error:",
-      err
-    );
-
-    showMsg(
-      "Не удалось отправить уведомление. Попробуйте ещё раз.",
-      "error"
-    );
-
-  }finally{
-
-    btn.disabled=false;
-    btn.textContent="Создать аккаунт →";
-
+    if (data.ok !== true) throw new Error('Сервер не подтвердил отправку.');
+    e.target.reset();
+    showMsg('Контактные данные отправлены. Аккаунт не создан: вход пока не подключён.', 'success');
+  } catch (err) {
+    showMsg(err.message || 'Не удалось отправить данные. Попробуйте ещё раз.', 'error');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Отправить данные →';
   }
+
 });
 
 
@@ -335,35 +260,9 @@ qs("#registerForm")?.addEventListener("submit",async e=>{
    ВХОД
    ========================================================= */
 
-qs("#loginForm")?.addEventListener("submit",async e=>{
+qs("#loginForm")?.addEventListener("submit", e => {
   e.preventDefault();
-
-  try{
-
-    const data=await safeFetch(
-      "/api/login",
-      {
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json"
-        },
-        body:JSON.stringify({
-          contact:qs("#loginContact").value.trim(),
-          password:qs("#loginPassword").value
-        })
-      }
-    );
-
-    showCabinet(data.user);
-
-  }catch(err){
-
-    showMsg(
-      err.message||"Не удалось выполнить вход.",
-      "error"
-    );
-
-  }
+  showMsg('Вход пока не подключён. Не вводите реальные пароли.', 'error');
 });
 
 
@@ -381,7 +280,5 @@ qs("#logoutBtn")?.addEventListener("click",()=>{
    ВОССТАНОВЛЕНИЕ СЕССИИ
    ========================================================= */
 
-const u=currentUser();
-
-if(u)
-  showCabinet(u);
+// Older versions stored an unauthenticated "session" locally. It is not a login.
+localStorage.removeItem("otkusi_user");
