@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Кредиты — Откуси Бабла</title>
-<link rel="stylesheet" href="assets/styles.css"><link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/styles.css">
 </head>
-<body class="loans-page" id="top">
-<header class="header"><div class="container nav">
-<a class="logo" href="index.html" aria-label="Откуси Бабла — главная"><span class="logo-mark" aria-hidden="true">◒</span><span>откуси<span class="logo-dot">.</span><br>бабла</span></a>
-<nav class="nav-links" id="navigation" aria-label="Основная навигация"><a href="products.html">Продукты</a><a href="credit-cards.html">Карты</a><a href="loans.html">Кредиты</a><a href="deposits.html">Вклады</a><a href="investment.html">Инвестиции</a><a href="faq.html">Помощь</a><a class="mobile-cabinet" href="cabinet.html">Личный кабинет ↗</a></nav>
-<a class="cabinet" href="cabinet.html"><span aria-hidden="true">◉</span> Личный кабинет <span aria-hidden="true">↗</span></a>
-<button class="menu-toggle" aria-expanded="false" aria-controls="navigation" aria-label="Открыть меню"><span></span><span></span></button>
-</div></header><div class="demo-banner">Демонстрационный проект · Банковские операции и оформление продуктов недоступны</div>
+<body class="loans-page">
+<header><div class="wrap nav">
+<a class="brand" href="index.html"><img src="https://cnizroman.github.io/otkusi.babla/137498702_1094725030976965_5901316285696199741_n.jpeg" alt="Логотип"><span><strong>Откуси Бабла</strong><small>коммерческий банк</small></span></a>
+<button class="menu">☰</button>
+<nav class="links"><a href="index.html">Главная</a><a href="products.html">Продукты</a><a href="credit-cards.html">Карты</a><a class="active" href="loans.html">Кредиты</a><a href="deposits.html">Вклады</a><a href="investment.html">Инвестиции</a><a href="branches.html">Отделения</a><a href="faq.html">Помощь</a><a class="nav-cabinet" href="cabinet.html">Кабинет</a><button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему">☾</button></nav>
+<a class="navbtn" href="application.html">Стать клиентом</a>
+</div></header>
 
 <section class="loan-hero42">
 <div class="wrap loan-hero-grid42">
@@ -42,17 +42,17 @@
 <div class="loan-calc42">
 <div class="loan-control42">
 <div class="loan-control-head42"><span>Сумма кредита</span><strong id="loanAmountOut">100 000 ₽</strong></div>
-<input id="loanAmount" aria-label="Сумма кредита" type="range" min="50000" max="3000000" step="10000" value="100000">
+<input id="loanAmount" type="range" min="50000" max="3000000" step="10000" value="100000">
 <div class="loan-range-labels42"><span>50 000 ₽</span><span>3 000 000 ₽</span></div>
 </div>
 <div class="loan-control42">
 <div class="loan-control-head42"><span>Срок</span><strong id="loanTermOut">36 мес.</strong></div>
-<input id="loanTerm" aria-label="Срок кредита в месяцах" type="range" min="12" max="84" step="12" value="36">
+<input id="loanTerm" type="range" min="12" max="84" step="12" value="36">
 <div class="loan-range-labels42"><span>12 мес.</span><span>84 мес.</span></div>
 </div>
 <div class="loan-result42">
 <div><span>Ориентировочный платёж</span><strong id="loanPayment">≈ 4 200 ₽</strong></div>
-<div class="loan-result-note">Условный пример: 4 200 ₽ на каждые 100 000 ₽ за 36 месяцев. Это не расчёт реального кредита.</div>
+<div class="loan-result-note">Итоговые условия, ставка и платёж определяются после рассмотрения заявки.</div>
 <a class="btn" href="application.html">Перейти к заявке →</a>
 </div>
 </div>
@@ -68,21 +68,26 @@
 </section>
 
 <section class="section wrap loan-steps42">
-<div class="loan-steps-copy42"><div class="eyebrow">КАК ЭТО РАБОТАЕТ</div><h2>Без квеста из десяти экранов.</h2><p>Посмотрите, как работает демонстрационный калькулятор. Реальные заявки и кредитование в проекте недоступны.</p></div>
+<div class="loan-steps-copy42"><div class="eyebrow">КАК ЭТО РАБОТАЕТ</div><h2>Без квеста из десяти экранов.</h2><p>Сначала выбираете параметры, затем оставляете заявку. После рассмотрения банк сообщает итоговые условия.</p></div>
 <div class="loan-steps-list42">
 <div><b>01</b><span><strong>Настройте сумму</strong><small>Используйте калькулятор выше.</small></span></div>
-<div><b>02</b><span><strong>Оставьте заявку</strong><small>Узнайте, как связаться с проектом.</small></span></div>
-<div><b>03</b><span><strong>Изучите другие продукты</strong><small>Все продукты представлены в демонстрационных целях.</small></span></div>
+<div><b>02</b><span><strong>Оставьте заявку</strong><small>Заполните контактные данные.</small></span></div>
+<div><b>03</b><span><strong>Дождитесь решения</strong><small>Условия определяются после рассмотрения.</small></span></div>
 </div>
 </section>
 
 <section class="section wrap loan-note42"><span>!</span><p><strong>Важно:</strong> все цифры и расчёты на этой странице являются демонстрационными и предназначены для интерфейса проекта.</p></section>
 </main>
 
-<footer class="footer"><div class="container"><div class="footer-main"><div><a class="logo footer-logo" href="index.html"><span class="logo-mark" aria-hidden="true">◒</span><span>откуси<span class="logo-dot">.</span><br>бабла</span></a><p>Банк с характером.<br>Для ваших больших и маленьких планов.</p><a class="social" href="https://t.me/Otkusi_Babla">Telegram ↗</a></div><div class="footer-column"><b>ПРОДУКТЫ</b><a href="credit-cards.html">Карты</a><a href="loans.html">Кредиты</a><a href="mortgage.html">Ипотека</a><a href="deposits.html">Вклады</a><a href="investment.html">Инвестиции</a></div><div class="footer-column"><b>СЕРВИС</b><a href="cabinet.html">Личный кабинет</a><a href="application.html">Заявка</a><a href="branches.html">Отделения</a><a href="consultant.html">Консультант</a></div><div class="footer-column"><b>ПОМОЩЬ</b><a href="faq.html">Вопросы и ответы</a><a href="contact.html">Контакты</a><a href="feedback.html">Обратная связь</a><a href="https://www.donationalerts.com/r/cnizroman" target="_blank" rel="noopener noreferrer">Поддержать проект ↗</a></div></div><div class="footer-bottom"><span>© 2026 «Откуси Бабла»</span><span>Информация на сайте предназначена для проекта.</span><a href="#top">Наверх ↑</a></div></div></footer>
-<script src="assets/app.js"></script><script src="assets/home.js"></script>
+<footer class="footer34"><div class="wrap footer-top"><div class="footer-brand"><a class="brand" href="index.html"><img src="https://cnizroman.github.io/otkusi.babla/137498702_1094725030976965_5901316285696199741_n.jpeg" alt=""><span><strong>Откуси Бабла</strong><small>коммерческий банк</small></span></a><p>Современный банковский сервис, понятные продукты и человеческая поддержка.</p><a class="tg-link" href="https://t.me/Otkusi_Babla">✈ Telegram банка</a>
+<a class="tg-link support-link" href="https://www.donationalerts.com/r/cnizroman" target="_blank" rel="noopener noreferrer">♥ Поддержать проект</a></div><div class="footer-col"><b>Продукты</b><a href="credit-cards.html">Карты</a><a href="loans.html">Кредиты</a><a href="mortgage.html">Ипотека</a><a href="deposits.html">Вклады</a><a href="investment.html">Инвестиции</a></div><div class="footer-col"><b>Сервис</b><a href="cabinet.html">Личный кабинет</a><a href="application.html">Заявка</a><a href="branches.html">Отделения</a><a href="consultant.html">Онлайн-консультант</a></div><div class="footer-col"><b>Помощь</b><a href="faq.html">FAQ</a><a href="contact.html">Контакты</a><a href="feedback.html">Отзывы</a><a href="https://t.me/Otkusi_Babla">Telegram</a></div></div><div class="wrap footer-bottom"><span>© 2026 Коммерческий Банк «Откуси Бабла»</span><span>Информация на сайте предназначена для проекта.</span></div></footer>
+<script src="assets/app.js"></script>
 <script>
 (function(){
+ const root=document.documentElement,key="otkusi-theme",saved=localStorage.getItem(key);
+ if(saved==="dark")root.setAttribute("data-theme","dark");
+ const b=document.getElementById("themeToggle");
+ if(b){const sync=()=>{const dark=root.getAttribute("data-theme")==="dark";b.textContent=dark?"☀":"☾";b.title=dark?"Светлая тема":"Тёмная тема"};sync();b.addEventListener("click",()=>{const dark=root.getAttribute("data-theme")==="dark";root.setAttribute("data-theme",dark?"light":"dark");localStorage.setItem(key,dark?"light":"dark");sync()})}
  const amount=document.getElementById("loanAmount"),term=document.getElementById("loanTerm"),amountOut=document.getElementById("loanAmountOut"),termOut=document.getElementById("loanTermOut"),payment=document.getElementById("loanPayment");
  function fmt(n){return Number(n).toLocaleString("ru-RU")+" ₽"}
  function update(){const a=Number(amount.value),m=Number(term.value);amountOut.textContent=fmt(a);termOut.textContent=m+" мес.";const demo=4200*(a/100000)*(36/m);payment.textContent="≈ "+(Math.round(demo/100)*100).toLocaleString("ru-RU")+" ₽"}
