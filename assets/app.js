@@ -1,6 +1,7 @@
-
-const menu=document.querySelector('.menu'),links=document.querySelector('.links');
-if(menu&&links)menu.addEventListener('click',()=>{links.classList.toggle('open');if(links.classList.contains('open')){links.style.display='flex';links.style.position='absolute';links.style.top='66px';links.style.left='12px';links.style.right='12px';links.style.padding='18px';links.style.background='#fff';links.style.border='1px solid #dbe7f0';links.style.borderRadius='16px';links.style.flexDirection='column';links.style.boxShadow='0 20px 50px rgba(10,50,80,.15)'}else links.removeAttribute('style')});
-document.querySelectorAll('[data-submit]').forEach(b=>b.addEventListener('click',()=>{const t=document.createElement('div');t.textContent=b.dataset.submit;t.style.cssText='position:fixed;right:18px;bottom:18px;background:#0b2d4a;color:#fff;padding:14px 18px;border-radius:13px;z-index:99;font-weight:800;box-shadow:0 12px 35px rgba(0,0,0,.2)';document.body.append(t);setTimeout(()=>t.remove(),2200)}));
-
-document.querySelectorAll("[data-range]").forEach(r=>{const o=document.querySelector(r.dataset.range);const u=()=>o&&(o.textContent=Number(r.value).toLocaleString("ru-RU")+" ₽");r.addEventListener("input",u);u()});
+// Shared range outputs used by the product pages.
+document.querySelectorAll('[data-range]').forEach(range => {
+  const output = document.querySelector(range.dataset.range);
+  const update = () => { if (output) output.textContent = Number(range.value).toLocaleString('ru-RU') + ' ₽'; };
+  range.addEventListener('input', update);
+  update();
+});
