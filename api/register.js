@@ -1,5 +1,5 @@
-const TELEGRAM_BOT_TOKEN = '8228362514:AAFN-ypxmQdsCYfekvvZrCOxz8_TFnRVECk';
-const TELEGRAM_CHAT_ID = '1457057474';
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -8,6 +8,10 @@ export default async function handler(req, res) {
 
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Метод не поддерживается' });
+
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+    return res.status(500).json({ error: 'Сервер не настроен: отсутствуют переменные Telegram.' });
+  }
 
   try {
     const body = req.body || {};
